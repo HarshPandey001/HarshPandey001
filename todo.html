@@ -1,0 +1,523 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Todo App — Harsh ( Due Dates, Reminders)</title>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
+  <style>
+    /* Reset */
+    *{box-sizing:border-box;margin:0;padding:0}
+    html,body{height:100%}
+    body{
+      font-family:"Inter",system-ui,-apple-system,"Segoe UI",Roboto,Arial,sans-serif;
+      background:var(--bg); color:var(--fg); line-height:1.4; padding:28px;
+      transition:background .25s, color .25s;
+    }
+
+    :root{
+      --bg:#f7fafc; --card:#fff; --fg:#0f1724; --muted:#64748b;
+      --accent1:#06b6d4; --accent2:#7c3aed; --accent-grad: linear-gradient(90deg,var(--accent2),var(--accent1));
+      --task-border:#e2e8f0; --success:#34d399; --danger:#ef4444;
+    }
+
+    .dark {
+      --bg:#0b1220; --card:#071127; --fg:#e6eef8; --muted:#94a3b8;
+      --task-border:#123; --accent1:#06b6d4; --accent2:#7c3aed;
+    }
+
+    a{color:inherit}
+    .wrap{max-width:1000px;margin:0 auto}
+
+    .topbar { display:flex; justify-content:space-between; align-items:center; gap:12px; margin-bottom:18px; }
+    .brand { display:flex; gap:12px; align-items:center; }
+    .logo{width:48px;height:48px;border-radius:12px;display:flex;align-items:center;justify-content:center;font-weight:700;color:white;background:linear-gradient(135deg,#7c3aed,#06b6d4)}
+    .controls-top { display:flex; gap:8px; align-items:center; }
+
+    .card { background:var(--card); border-radius:14px; padding:20px; box-shadow:0 8px 30px rgba(2,6,23,0.06); }
+
+    h2{font-size:20px;margin-bottom:12px;font-weight:700}
+
+    /* Form */
+    .todo-form{display:flex;gap:10px;align-items:center;margin-bottom:14px;flex-wrap:wrap}
+    .todo-form input[type="text"], .todo-form input[type="datetime-local"], .todo-form input[type="date"], .todo-form input[type="time"]{
+      padding:10px 12px;border-radius:10px;border:1px solid var(--task-border); font-size:15px; background:transparent; color:var(--fg)
+    }
+    .todo-form .grow{flex:1;min-width:120px}
+    .btn { padding:10px 14px;border-radius:10px;border:0; font-weight:700; cursor:pointer; color:#fff; background:linear-gradient(90deg,#06b6d4,#7c3aed); }
+    .btn.ghost{background:transparent;color:var(--fg);border:1px solid rgba(255,255,255,0.06)}
+
+    .small { padding:8px 10px; border-radius:8px; background:transparent; border:1px solid var(--task-border); color:var(--fg); cursor:pointer }
+
+    .meta-row { display:flex; gap:12px; align-items:center; justify-content:space-between; flex-wrap:wrap; margin-bottom:12px; }
+    .filters { display:flex; gap:8px; align-items:center; }
+    .filter-btn { padding:8px 10px; border-radius:8px; background:transparent; border:1px solid transparent; cursor:pointer; color:var(--fg); font-weight:600 }
+    .filter-btn.active { background:rgba(124,58,237,0.08); border-color:rgba(99,102,241,0.12); color:var(--fg) }
+
+    .search { display:flex; gap:8px; align-items:center }
+    .left-meta{color:var(--muted);font-size:14px}
+
+    /* Task list */
+    .task-list{list-style:none;display:grid;gap:10px;margin-top:8px}
+    .task{
+      display:flex;gap:12px;align-items:flex-start;padding:12px;border-radius:10px;border:1px solid var(--task-border);
+      background:linear-gradient(180deg, transparent, transparent); overflow:hidden;
+      transform-origin:left center; transition:transform .18s ease, opacity .18s ease;
+    }
+    .task.enter{ animation:taskIn .28s ease both; }
+    .task.leave{ animation:taskOut .22s ease both; }
+
+    @keyframes taskIn { from { opacity:0; transform:translateX(-8px) scale(.995) } to { opacity:1; transform:none } }
+    @keyframes taskOut { from { opacity:1; transform:none } to { opacity:0; transform:translateX(8px) scale(.98) } }
+
+    .checkbox{width:22px;height:22px;border-radius:6px;border:2px solid #cbd5e1;display:flex;align-items:center;justify-content:center;cursor:pointer;flex-shrink:0}
+    .checkbox.checked{background:var(--success);border-color:var(--success);color:#043927;font-weight:800}
+    .task-body{flex:1;min-width:0}
+    .task-title{font-weight:700;color:var(--fg);word-break:break-word}
+    .task-title.completed{ text-decoration:line-through;color:var(--muted);font-weight:600 }
+    .task-note{color:var(--muted);margin-top:6px;font-size:14px}
+    .task-meta{display:flex;gap:8px;align-items:center;margin-left:8px}
+
+    .icon-btn{background:none;border:0;padding:6px 8px;border-radius:8px;cursor:pointer;color:var(--fg);font-weight:700}
+    .icon-btn:hover{background:rgba(124,58,237,0.06)}
+
+    .due-badge{font-size:13px;padding:6px 8px;border-radius:10px;background:rgba(99,102,241,0.08);color:var(--fg);font-weight:700}
+    .overdue{background:rgba(239,68,68,0.12);color:var(--danger)}
+
+    .edit-input{width:100%;padding:8px;border-radius:8px;border:1px solid var(--task-border);background:transparent;color:var(--fg)}
+
+    .empty{text-align:center;color:var(--muted);padding:18px}
+
+    /* share/export row */
+    .row { display:flex; gap:8px; align-items:center; flex-wrap:wrap; }
+
+    /* contact block */
+    .contact-block{margin-top:20px;padding:16px;border-radius:12px;background:linear-gradient(135deg,#7c3aed,#06b6d4);color:white;text-align:center;font-weight:700}
+    .contact-block a{color:white;text-decoration:underline}
+
+    /* dark toggle */
+    .toggle { display:flex; gap:8px; align-items:center; padding:6px 8px; border-radius:999px; background:rgba(0,0,0,0.03); cursor:pointer; font-weight:700 }
+
+    @media (max-width:640px) {
+      .todo-form{flex-direction:column;align-items:stretch}
+      .meta-row{flex-direction:column;align-items:flex-start}
+    }
+
+  </style>
+</head>
+<body>
+  <div class="wrap">
+    <div class="topbar">
+      <div class="brand">
+        <div class="logo">HP</div>
+        <div>
+          <div style="font-weight:800">Harsh — Todo</div>
+          <div style="color:var(--muted);font-size:13px">Tasks · Reminders · Dark mode</div>
+        </div>
+      </div>
+
+      <div class="controls-top">
+        <button id="exportBtn" class="small" title="Export tasks as JSON">Export</button>
+        <button id="shareBtn" class="small" title="Share tasks">Share</button>
+        <div id="darkToggle" class="toggle" title="Toggle dark mode">🌙 Toggle</div>
+      </div>
+    </div>
+
+    <div class="card" id="appCard" role="application" aria-labelledby="todoTitle">
+      <h2 id="todoTitle">Todo List</h2>
+
+      <!-- Add form (title + due + reminder) -->
+      <form id="addForm" class="todo-form" title="Add new task">
+        <input id="taskTitle" class="grow" type="text" placeholder="Add a new task..." required />
+        <input id="dueInput" type="datetime-local" title="Optional due date/time" />
+        <label style="display:flex;align-items:center;gap:8px">
+          <input id="reminderCheck" type="checkbox" /> Set reminder
+        </label>
+        <button class="btn" type="submit">Add</button>
+      </form>
+
+      <div class="meta-row">
+        <div style="display:flex;gap:12px;align-items:center;">
+          <div class="left-meta" id="taskCount">0 active • 0 total</div>
+          <div class="filters" role="tablist" aria-label="Filter tasks">
+            <button class="filter-btn active" data-filter="all">All</button>
+            <button class="filter-btn" data-filter="active">Active</button>
+            <button class="filter-btn" data-filter="completed">Completed</button>
+          </div>
+        </div>
+
+        <div class="row">
+          <div class="search">
+            <input id="searchInput" type="text" placeholder="Search tasks..." />
+          </div>
+          <button id="clearCompleted" class="small" title="Clear completed tasks">Clear Completed</button>
+        </div>
+      </div>
+
+      <ul id="taskList" class="task-list" aria-live="polite"></ul>
+
+      <div id="emptyState" class="empty" style="display:none">No tasks yet — add your first task above.</div>
+
+      <!-- credit -->
+      <div style="text-align:center;margin-top:18px;color:var(--muted);font-size:14px">Made by <strong>Harsh Pandey</strong></div>
+
+      <!-- Contact block -->
+      <div class="contact-block" aria-hidden="false">
+        Contact for any kind of development:<br><br>
+        📞 <a href="https://wa.me/916388050042" target="_blank">+916388050042</a> ·
+        📧 <a href="mailto:hapa1929@gmail.com">hapa1929@gmail.com</a> ·
+        📸 <a href="https://www.instagram.com/harsh_pandey_ff_008/" target="_blank">@harsh_pandey_ff_008</a>
+      </div>
+    </div>
+  </div>
+
+  <script>
+  (function(){
+    const STORAGE_KEY = 'harsh_todos_v2';
+    const REMIND_KEY = 'harsh_reminders_v2';
+    // Elements
+    const addForm = document.getElementById('addForm');
+    const taskTitleInput = document.getElementById('taskTitle');
+    const dueInput = document.getElementById('dueInput');
+    const reminderCheck = document.getElementById('reminderCheck');
+    const taskList = document.getElementById('taskList');
+    const taskCount = document.getElementById('taskCount');
+    const filterBtns = document.querySelectorAll('.filter-btn[data-filter]');
+    const searchInput = document.getElementById('searchInput');
+    const clearCompletedBtn = document.getElementById('clearCompleted');
+    const emptyState = document.getElementById('emptyState');
+    const exportBtn = document.getElementById('exportBtn');
+    const shareBtn = document.getElementById('shareBtn');
+    const darkToggle = document.getElementById('darkToggle');
+
+    let tasks = []; // {id,title,completed,due:timestamp|null, reminderAt:timestamp|null, createdAt }
+    let filter = 'all';
+    let searchText = '';
+    let timers = {}; // id => timeoutId
+
+    // Dark mode init
+    function applyDark(pref){
+      if(pref === 'dark') document.documentElement.classList.add('dark');
+      else document.documentElement.classList.remove('dark');
+      localStorage.setItem('harsh_theme','' + (pref||'light'));
+    }
+    // load theme
+    applyDark(localStorage.getItem('harsh_theme') === 'dark' ? 'dark' : 'light');
+    darkToggle.addEventListener('click', () => {
+      const now = document.documentElement.classList.toggle('dark');
+      localStorage.setItem('harsh_theme', now ? 'dark' : 'light');
+    });
+
+    // util uid
+    function uid(){ return 't_' + Math.random().toString(36).slice(2,9); }
+
+    // storage
+    function save(){ localStorage.setItem(STORAGE_KEY, JSON.stringify(tasks)); }
+    function load(){
+      try{
+        const raw = localStorage.getItem(STORAGE_KEY);
+        tasks = raw ? JSON.parse(raw) : [];
+      }catch(e){ console.error(e); tasks = []; }
+    }
+
+    // Reminders: persist reminder times per task in tasks.reminderAt (timestamp)
+    function scheduleReminder(task){
+      // clear previous
+      if(timers[task.id]) { clearTimeout(timers[task.id]); delete timers[task.id]; }
+      if(!task.reminderAt) return;
+      const delay = task.reminderAt - Date.now();
+      if(delay <= 0){
+        // time already passed — show immediately
+        showNotification(task);
+        return;
+      }
+      // limit max timeout to safe number? browsers support up to 2^31-1 (~24.8 days)
+      timers[task.id] = setTimeout(() => {
+        showNotification(task);
+        delete timers[task.id];
+      }, delay);
+    }
+
+    function scheduleAllReminders(){
+      // cancel existing timers
+      Object.values(timers).forEach(t => clearTimeout(t));
+      timers = {};
+      tasks.forEach(t => {
+        if(t.reminderAt) scheduleReminder(t);
+      });
+    }
+
+    function requestNotificationPermission(){
+      if(!("Notification" in window)) return Promise.resolve(false);
+      if(Notification.permission === 'granted') return Promise.resolve(true);
+      if(Notification.permission === 'denied') return Promise.resolve(false);
+      return Notification.requestPermission().then(p => p === 'granted');
+    }
+
+    function showNotification(task){
+      // show in-page fallback alert too
+      try{
+        if(Notification.permission === 'granted'){
+          const title = task.title || 'Todo reminder';
+          const options = {
+            body: task.due ? `Due: ${new Date(task.due).toLocaleString()}` : 'Reminder from your Todo app',
+            tag: task.id,
+            renotify: true
+          };
+          new Notification(title, options);
+        } else {
+          // fallback: small window alert (non-blocking)
+          // We'll also flash a small in-page visual (console + toast could be added)
+          console.log('Reminder:', task.title);
+        }
+      }catch(e){ console.error(e); }
+    }
+
+    // Add task
+    function addTask(title, due=null, reminderAt=null){
+      const t = {
+        id: uid(),
+        title: title.trim(),
+        completed: false,
+        due: due ? Number(due) : null,
+        reminderAt: reminderAt ? Number(reminderAt) : null,
+        createdAt: Date.now()
+      };
+      tasks.unshift(t);
+      save();
+      render();
+      if(t.reminderAt){
+        requestNotificationPermission().then(ok => {
+          if(ok) scheduleReminder(t);
+        });
+      }
+    }
+
+    function toggleComplete(id){
+      const t = tasks.find(x => x.id === id); if(!t) return;
+      t.completed = !t.completed; save(); render();
+    }
+    function removeTask(id){
+      // clear timer
+      if(timers[id]) { clearTimeout(timers[id]); delete timers[id]; }
+      tasks = tasks.filter(x => x.id !== id); save(); render();
+    }
+    function updateTask(id, data){
+      const t = tasks.find(x => x.id === id);
+      if(!t) return;
+      Object.assign(t, data); save(); render();
+      if(t.reminderAt) {
+        requestNotificationPermission().then(ok => { if(ok) scheduleReminder(t); });
+      } else {
+        if(timers[id]) { clearTimeout(timers[id]); delete timers[id]; }
+      }
+    }
+
+    function clearCompleted(){
+      tasks = tasks.filter(x => !x.completed); save(); render();
+    }
+
+    function applyFilters(list){
+      let out = list;
+      if(filter === 'active') out = out.filter(t => !t.completed);
+      else if(filter === 'completed') out = out.filter(t => t.completed);
+      if(searchText){
+        const q = searchText.toLowerCase();
+        out = out.filter(t => (t.title || '').toLowerCase().includes(q));
+      }
+      return out;
+    }
+
+    // Render
+    function render(){
+      const total = tasks.length;
+      const active = tasks.filter(t => !t.completed).length;
+      taskCount.textContent = `${active} active • ${total} total`;
+
+      const list = applyFilters(tasks);
+      taskList.innerHTML = '';
+      if(list.length === 0){
+        emptyState.style.display = total === 0 ? 'block' : 'none';
+        return;
+      } else emptyState.style.display = 'none';
+
+      list.forEach(task => {
+        const li = document.createElement('li');
+        li.className = 'task enter';
+        li.dataset.id = task.id;
+
+        // checkbox
+        const cb = document.createElement('button');
+        cb.className = 'checkbox' + (task.completed ? ' checked' : '');
+        cb.title = task.completed ? 'Mark incomplete' : 'Mark complete';
+        cb.innerHTML = task.completed ? '✓' : '';
+        cb.onclick = () => toggleComplete(task.id);
+
+        // body
+        const body = document.createElement('div');
+        body.className = 'task-body';
+
+        const title = document.createElement('div');
+        title.className = 'task-title' + (task.completed ? ' completed' : '');
+        title.textContent = task.title;
+        title.tabIndex = 0;
+        title.ondblclick = () => beginEdit(task.id, title);
+
+        body.appendChild(title);
+
+        if(task.due){
+          const dueDiv = document.createElement('div');
+          const dt = new Date(task.due);
+          const now = Date.now();
+          dueDiv.className = 'task-note';
+          const formatted = dt.toLocaleString();
+          if(task.due < now && !task.completed){
+            dueDiv.innerHTML = `<span class="due-badge overdue">Overdue • ${formatted}</span>`;
+          } else {
+            dueDiv.innerHTML = `<span class="due-badge">Due • ${formatted}</span>`;
+          }
+          body.appendChild(dueDiv);
+        }
+
+        // meta (edit/delete/reminder)
+        const meta = document.createElement('div');
+        meta.className = 'task-meta';
+
+        const remBtn = document.createElement('button');
+        remBtn.className = 'icon-btn';
+        remBtn.textContent = 'Reminder';
+        remBtn.title = 'Set / Edit reminder';
+        remBtn.onclick = () => openReminderPrompt(task.id);
+
+        const editBtn = document.createElement('button');
+        editBtn.className = 'icon-btn';
+        editBtn.textContent = 'Edit';
+        editBtn.onclick = () => beginEdit(task.id, title);
+
+        const delBtn = document.createElement('button');
+        delBtn.className = 'icon-btn';
+        delBtn.textContent = 'Delete';
+        delBtn.onclick = () => {
+          if(confirm('Delete this task?')) removeTask(task.id);
+        };
+
+        meta.appendChild(remBtn);
+        meta.appendChild(editBtn);
+        meta.appendChild(delBtn);
+
+        li.appendChild(cb);
+        li.appendChild(body);
+        li.appendChild(meta);
+        taskList.appendChild(li);
+      });
+    }
+
+    // Inline edit
+    function beginEdit(id, titleEl){
+      const t = tasks.find(x => x.id===id); if(!t) return;
+      const input = document.createElement('input');
+      input.className = 'edit-input';
+      input.value = t.title;
+      titleEl.replaceWith(input);
+      input.focus();
+      input.setSelectionRange(input.value.length, input.value.length);
+
+      input.onkeydown = (e) => {
+        if(e.key === 'Enter') finish(true);
+        if(e.key === 'Escape') finish(false);
+      };
+      input.onblur = () => finish(true);
+
+      function finish(saveFlag){
+        if(saveFlag){
+          const val = input.value.trim();
+          if(val) updateTask(id, { title: val });
+          else alert('Title cannot be empty.');
+        } else render();
+      }
+    }
+
+    // Reminder prompt: simple prompt using datetime-local
+    function openReminderPrompt(id){
+      const t = tasks.find(x => x.id === id);
+      if(!t) return;
+      const current = t.reminderAt ? new Date(t.reminderAt).toISOString().slice(0,16) : '';
+      const r = prompt('Enter reminder datetime (YYYY-MM-DDThh:mm) — leave blank to remove\nExample: 2025-12-31T09:30', current);
+      if(r === null) return; // cancelled
+      const val = r.trim();
+      if(!val){
+        updateTask(id, { reminderAt: null });
+        return;
+      }
+      const ts = Date.parse(val);
+      if(isNaN(ts)) { alert('Invalid datetime format. Use YYYY-MM-DDThh:mm'); return; }
+      updateTask(id, { reminderAt: ts });
+      requestNotificationPermission().then(ok => {
+        if(ok) scheduleReminder(tasks.find(x=>x.id===id));
+        else alert('Notifications not enabled — reminders will not show as notifications.');
+      });
+    }
+
+    // Add form handler
+    addForm.addEventListener('submit', (e) => {
+      e.preventDefault();
+      const title = taskTitleInput.value.trim();
+      if(!title) return;
+      const dueVal = dueInput.value ? Date.parse(dueInput.value) : null;
+      const reminderAt = (!reminderCheck.checked || !dueInput.value) ? null : (Date.parse(dueInput.value));
+      // If set reminder but no Due chosen, use dueVal null and ask for separate reminder? For simplicity, if reminder checked and due provided -> set reminder at due
+      addTask(title, dueVal, reminderAt);
+      taskTitleInput.value = ''; dueInput.value=''; reminderCheck.checked=false;
+    });
+
+    // filters
+    filterBtns.forEach(btn => btn.addEventListener('click', () => {
+      filterBtns.forEach(b => b.classList.remove('active'));
+      btn.classList.add('active');
+      filter = btn.dataset.filter; render();
+    }));
+
+    searchInput.addEventListener('input', (e) => {
+      searchText = e.target.value; render();
+    });
+
+    clearCompletedBtn.addEventListener('click', () => {
+      if(confirm('Remove all completed tasks?')) { clearCompleted(); scheduleAllReminders(); }
+    });
+
+    // Export / Share
+    exportBtn.addEventListener('click', () => {
+      const data = JSON.stringify(tasks, null, 2);
+      const blob = new Blob([data], {type:'application/json'});
+      const url = URL.createObjectURL(blob);
+      const a = document.createElement('a');
+      a.href = url; a.download = 'harsh_todos.json'; document.body.appendChild(a); a.click(); a.remove();
+      URL.revokeObjectURL(url);
+    });
+
+    shareBtn.addEventListener('click', async () => {
+      const summary = tasks.map(t => `${t.completed ? '✓' : '◻'} ${t.title}${t.due ? ' (Due ' + new Date(t.due).toLocaleString() + ')' : ''}`).join('\n');
+      if(navigator.share){
+        try { await navigator.share({title:'My Todos', text: summary}); } catch(e){ console.log('Share canceled', e); }
+      } else {
+        // fallback: copy to clipboard
+        try { await navigator.clipboard.writeText(summary); alert('Tasks copied to clipboard'); } catch(e){ alert('Sharing not available'); }
+      }
+    });
+
+    // Initialization
+    load();
+    render();
+    scheduleAllReminders();
+
+    // When page gains focus, re-schedule (in case system slept)
+    window.addEventListener('focus', scheduleAllReminders);
+
+    // Request notification permission on first reminder scheduling only (handled when scheduling)
+
+    // expose for debugging
+    window.__harsh_todos = { tasks, save, load, render };
+  })();
+  </script>
+</body>
+</html>
