@@ -1,44 +1,62 @@
-# 👋 Hi, I'm Harsh Pandey
+<h1 align="center">Hi 👋, I'm Harsh Pandey</h1>
+<h3 align="center">🚀 Frontend Developer | 🤖 AI Builder | 🎮 Tech Explorer</h3>
 
-### 🚀 Frontend Developer | 🎮 Tech & Gaming Enthusiast | 🤖 AI User
-
-I'm a BCA student passionate about **web development, coding, esports gaming, and building smart AI tools** that make life easier and faster.  
-I enjoy exploring new technologies, experimenting with projects, and learning by building real things.
-
----
-
-## 🔧 Tech Stack
-- **Languages:** Python, Java, JavaScript  
-- **Databases:** MySQL, Oracle  
-- **Web Dev:** HTML, CSS, JavaScript  
-- **Other Interests:** AI development, automation, gaming tools, cybersecurity basics  
+<p align="center">
+  <img src="https://readme-typing-svg.demolab.com?lines=Frontend+Developer;AI+Tool+Builder;Automation+Lover;Always+Learning+New+Tech&center=true&width=500&height=45">
+</p>
 
 ---
 
-## 📘 Currently Learning
-- Frontend Development (deep practice)  
-- Building AI assistants  
-- Improving Java & Python backend skills  
+## 💡 About Me
+- 🎓 BCA Student passionate about tech & innovation  
+- 🤖 Building AI tools & automation systems  
+- 🌐 Love creating real-world web applications  
+- 🎮 Into gaming tech & experimental projects  
+- ⚡ Learning by building, not just watching  
 
 ---
 
-## 🎯 Goals
-- Become a strong **Frontend Developer**  
-- Build advanced AI features for websites  
-- Create smart tools that help people work faster  
+## 🚀 Tech Stack
+
+### 💻 Languages
+<p>
+<img src="https://skillicons.dev/icons?i=python,java,js,c,cpp" />
+</p>
+
+### 🌐 Web Development
+<p>
+<img src="https://skillicons.dev/icons?i=html,css,js" />
+</p>
+
+### 🗄️ Databases
+<p>
+<img src="https://skillicons.dev/icons?i=mysql,mongodb" />
+</p>
+
+### ⚙️ Tools & Interests
+<p>
+<img src="https://skillicons.dev/icons?i=git,github,vscode" />
+</p>
 
 ---
 
-## 📫 Contact Me
-- **Email:** hapa1929@gmail.com  
-- **Phone:** 6388050042  
+## 📈 Currently Learning
+- ⚡ Advanced Frontend Development  
+- 🤖 AI Agents & Smart Assistants  
+- 🛠️ Backend (Java + Python + DB Integration)  
 
 ---
 
-## ❤️ About Me
-I love creating things — websites, tools, AI prompts, automation scripts, and fun coding experiments.  
-My dream is to use **AI + coding** to make life smarter and more efficient.
+## 🏆 Goals
+- 🚀 Become a Top Frontend Developer  
+- 🤖 Build AI-powered Web Apps  
+- 💰 Create scalable digital products  
+- 🧠 Build systems that automate real work  
 
 ---
 
-⭐ *Thanks for checking out my GitHub!*
+## 🔥 Featured Projects
+```diff
++ 🚀 AI Study Web App (Frontend + Backend + MongoDB)
++ 🤖 Auto Reply AI Agent (Multi-platform idea)
++ 🎮 Gaming Tools & Experiments
