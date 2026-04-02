@@ -45,17 +45,17 @@
 ---
 
 ## 🔥 What I Build
-- 🌐 Full Stack Web Applications (Frontend + Backend + Database)  
+- 🌐 Full Stack Web Applications  
 - 🤖 AI-Based Tools & Smart Assistants  
-- ⚡ Automation Systems (Chat Auto Reply, Smart Scripts)  
-- 🎮 Gaming Tools & Experimental Projects  
+- ⚡ Automation Systems  
+- 🎮 Gaming Tools  
 
 ---
 
 ## 📈 Currently Learning
-- ⚡ Advanced Frontend (UI + Performance)  
-- 🧠 Backend Scaling (APIs + Database Design)  
-- 🤖 AI Agents & Memory-Based Systems  
+- ⚡ Advanced Frontend  
+- 🧠 Backend Scaling  
+- 🤖 AI Agents  
 - 🔐 Cybersecurity Basics  
 
 ---
@@ -63,13 +63,13 @@
 ## 🏆 Goals
 - 🚀 Become a Top Full Stack Developer  
 - 🤖 Build AI-powered SaaS Products  
-- 💰 Create income through tech  
-- 🧠 Build systems that automate real work  
+- 💰 Earn through tech  
+- 🧠 Build smart automation systems  
 
 ---
 
 ## 🔥 Featured Projects
-- 🚀 AI Study Web App (Frontend + Backend + MongoDB)  
+- 🚀 AI Study Web App  
 - 🤖 Auto Reply AI Agent  
 - 🌐 Full Stack Learning Platform  
 - 🎮 Gaming Tools  
@@ -77,8 +77,10 @@
 ---
 
 ## 📊 GitHub Stats
-- https://github-readme-stats.vercel.app/api?username=HarshPandey001&show_icons=true  
-- https://github-readme-stats.vercel.app/api/top-langs/?username=HarshPandey001  
+
+![Harsh's GitHub stats](https://github-readme-stats.vercel.app/api?username=HarshPandey001&show_icons=true&theme=tokyonight)
+
+![Top Langs](https://github-readme-stats.vercel.app/api/top-langs/?username=HarshPandey001&layout=compact&theme=tokyonight)
 
 ---
 
