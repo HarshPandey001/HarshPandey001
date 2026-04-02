@@ -2,7 +2,7 @@
 <h3 align="center">🚀 Full Stack Developer | 🤖 AI Builder | 🎮 Tech Explorer</h3>
 
 <p align="center">
-  <img src="https://readme-typing-svg.demolab.com?lines=Full+Stack+Developer;AI+Builder;Backend+Developer;Automation+Expert;Always+Learning&center=true&width=550&height=45"/>
+ <img src="https://readme-typing-svg.demolab.com?lines=Full+Stack+Developer;AI+Builder;Android+Developer;Automation+Expert;Always+Learning&center=true&width=550&height=45" />
 </p>
 
 ---
@@ -14,6 +14,7 @@
 - 🤖 Create **AI tools & automation systems**
 - 🎮 Interested in **gaming tech & experimental projects**
 - ⚡ Believe in **learning by building real-world systems**
+- 📱 Currently diving deep into Android Development (Kotlin/Java)
 
 ---
 
@@ -43,6 +44,10 @@
 <p>
   <img src="https://skillicons.dev/icons?i=git,github,vscode,postman" />
 </p>
+### 📱 Mobile Development
+<p>
+  <img src="https://skillicons.dev/icons?i=android,kotlin" />
+</p>
 
 ---
 
@@ -52,12 +57,14 @@
   <li>🤖 AI Tools & Smart Assistants</li>
   <li>⚡ Automation Systems</li>
   <li>🎮 Gaming Tools</li>
+  <li>📱 Mobile Applications (Android)</li>
 </ul>
 
 ---
 
 ## 📈 Currently Learning
 <ul>
+<li>📱 <b>Android Development (Kotlin/Java)</b></li>
   <li>⚡ Advanced Frontend</li>
   <li>🧠 Backend Scaling</li>
   <li>🤖 AI Agents</li>
