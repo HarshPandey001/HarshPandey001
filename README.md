@@ -1,9 +1,5 @@
-<h1 align="center">Hi 👋, I'm Harsh Pandey</h1>
-<h3 align="center">🚀 Full Stack Developer | 🤖 AI Builder | 🎮 Tech Explorer</h3>
-
-<p align="center">
-  <img src="https://readme-typing-svg.demolab.com?lines=Full+Stack+Developer;AI+Tool+Builder;Backend+Developer;Automation+Expert;Always+Learning&center=true&width=550&height=45">
-</p>
+# 👋 Hi, I'm Harsh Pandey  
+### 🚀 Full Stack Developer | 🤖 AI Builder | 🎮 Tech Explorer  
 
 ---
 
@@ -20,66 +16,86 @@
 ## 🚀 Tech Stack
 
 ### 💻 Languages
-<p>
-<img src="https://skillicons.dev/icons?i=python,java,js,c,cpp" />
-</p>
+- Python  
+- Java  
+- JavaScript  
+- C  
+- C++  
 
 ### 🌐 Frontend
-<p>
-<img src="https://skillicons.dev/icons?i=html,css,js" />
-</p>
+- HTML  
+- CSS  
+- JavaScript  
 
 ### 🧠 Backend
-<p>
-<img src="https://skillicons.dev/icons?i=nodejs,express" />
-</p>
+- Node.js  
+- Express.js  
 
 ### 🗄️ Databases
-<p>
-<img src="https://skillicons.dev/icons?i=mysql,mongodb,oracle" />
-</p>
+- MySQL  
+- MongoDB  
+- Oracle  
 
-### ⚙️ Tools & Technologies
-<p>
-<img src="https://skillicons.dev/icons?i=git,github,vscode,postman" />
-</p>
+### ⚙️ Tools
+- Git  
+- GitHub  
+- VS Code  
+- Postman  
 
 ---
 
 ## 🔥 What I Build
-```diff
-+ 🌐 Full Stack Web Applications (Frontend + Backend + Database)
-+ 🤖 AI-Based Tools & Smart Assistants
-+ ⚡ Automation Systems (Chat Auto Reply, Smart Scripts)
-+ 🎮 Gaming Tools & Experimental Projects
-📈 Currently Leveling Up
-⚡ Advanced Frontend (UI + Performance)
-🧠 Backend Scaling (APIs + Database Design)
-🤖 AI Agents & Memory-Based Systems
-🔐 Cybersecurity Basics & System Logic
-🏆 Goals
-🚀 Become a Top Full Stack Developer
-🤖 Build AI-powered SaaS Products
-💰 Generate income through tech products
-🧠 Create systems that think & automate like humans
-🔥 Featured Projects
-+ 🚀 AI Study Web App (Frontend + Backend + MongoDB)
-+ 🤖 Auto Reply AI Agent (Multi-platform system)
-+ 🌐 Full Stack Learning Platform
-+ 🎮 Gaming Tools & Custom Experiments
-📊 GitHub Stats
-<p align="center"> <img src="https://github-readme-stats.vercel.app/api?username=HarshPandey001&show_icons=true&theme=tokyonight" /> <img src="https://github-readme-stats.vercel.app/api/top-langs/?username=HarshPandey001&layout=compact&theme=tokyonight" /> </p>
-🔥 Streak Stats
-<p align="center"> <img src="https://streak-stats.demolab.com?user=HarshPandey001&theme=tokyonight" /> </p>
-📫 Connect With Me
-📧 Email: hapa1929@gmail.com
-📱 Phone: 6388050042
-💣 Developer Mindset
+- 🌐 Full Stack Web Applications (Frontend + Backend + Database)  
+- 🤖 AI-Based Tools & Smart Assistants  
+- ⚡ Automation Systems (Chat Auto Reply, Smart Scripts)  
+- 🎮 Gaming Tools & Experimental Projects  
 
-“I don’t wait for opportunities — I build systems that create them.”
+---
 
-🧠 Fun Fact
+## 📈 Currently Learning
+- ⚡ Advanced Frontend (UI + Performance)  
+- 🧠 Backend Scaling (APIs + Database Design)  
+- 🤖 AI Agents & Memory-Based Systems  
+- 🔐 Cybersecurity Basics  
 
-⚡ I love building AI systems that can store memory, think, and reply automatically like humans
+---
 
-<p align="center"> ⭐ If you like my work, follow & connect! </p> ```
+## 🏆 Goals
+- 🚀 Become a Top Full Stack Developer  
+- 🤖 Build AI-powered SaaS Products  
+- 💰 Create income through tech  
+- 🧠 Build systems that automate real work  
+
+---
+
+## 🔥 Featured Projects
+- 🚀 AI Study Web App (Frontend + Backend + MongoDB)  
+- 🤖 Auto Reply AI Agent  
+- 🌐 Full Stack Learning Platform  
+- 🎮 Gaming Tools  
+
+---
+
+## 📊 GitHub Stats
+- https://github-readme-stats.vercel.app/api?username=HarshPandey001&show_icons=true  
+- https://github-readme-stats.vercel.app/api/top-langs/?username=HarshPandey001  
+
+---
+
+## 📫 Contact
+- 📧 Email: hapa1929@gmail.com  
+- 📱 Phone: 6388050042  
+
+---
+
+## 💣 Mindset
+> I don’t wait for opportunities — I build them using code.
+
+---
+
+## 🧠 Fun Fact
+I love building AI systems that can think, remember, and reply like humans  
+
+---
+
+⭐ Follow me for more projects
