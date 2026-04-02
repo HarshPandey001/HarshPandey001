@@ -1,5 +1,9 @@
-# 👋 Hi, I'm Harsh Pandey  
-### 🚀 Full Stack Developer | 🤖 AI Builder | 🎮 Tech Explorer  
+<h1 align="center">Hi 👋, I'm Harsh Pandey</h1>
+<h3 align="center">🚀 Full Stack Developer | 🤖 AI Builder | 🎮 Tech Explorer</h3>
+
+<p align="center">
+  <img src="https://readme-typing-svg.demolab.com?lines=Full+Stack+Developer;AI+Builder;Backend+Developer;Automation+Expert;Always+Learning&center=true&width=550&height=45"/>
+</p>
 
 ---
 
@@ -16,88 +20,116 @@
 ## 🚀 Tech Stack
 
 ### 💻 Languages
-- Python  
-- Java  
-- JavaScript  
-- C  
-- C++  
+<p>
+  <img src="https://skillicons.dev/icons?i=python,java,js,c,cpp" />
+</p>
 
 ### 🌐 Frontend
-- HTML  
-- CSS  
-- JavaScript  
+<p>
+  <img src="https://skillicons.dev/icons?i=html,css,js" />
+</p>
 
 ### 🧠 Backend
-- Node.js  
-- Express.js  
+<p>
+  <img src="https://skillicons.dev/icons?i=nodejs,express" />
+</p>
 
 ### 🗄️ Databases
-- MySQL  
-- MongoDB  
-- Oracle  
+<p>
+  <img src="https://skillicons.dev/icons?i=mysql,mongodb,oracle" />
+</p>
 
-### ⚙️ Tools
-- Git  
-- GitHub  
-- VS Code  
-- Postman  
+### ⚙️ Tools & Technologies
+<p>
+  <img src="https://skillicons.dev/icons?i=git,github,vscode,postman" />
+</p>
 
 ---
 
 ## 🔥 What I Build
-- 🌐 Full Stack Web Applications  
-- 🤖 AI-Based Tools & Smart Assistants  
-- ⚡ Automation Systems  
-- 🎮 Gaming Tools  
+<ul>
+  <li>🌐 Full Stack Web Applications</li>
+  <li>🤖 AI Tools & Smart Assistants</li>
+  <li>⚡ Automation Systems</li>
+  <li>🎮 Gaming Tools</li>
+</ul>
 
 ---
 
 ## 📈 Currently Learning
-- ⚡ Advanced Frontend  
-- 🧠 Backend Scaling  
-- 🤖 AI Agents  
-- 🔐 Cybersecurity Basics  
+<ul>
+  <li>⚡ Advanced Frontend</li>
+  <li>🧠 Backend Scaling</li>
+  <li>🤖 AI Agents</li>
+  <li>🔐 Cybersecurity Basics</li>
+</ul>
 
 ---
 
 ## 🏆 Goals
-- 🚀 Become a Top Full Stack Developer  
-- 🤖 Build AI-powered SaaS Products  
-- 💰 Earn through tech  
-- 🧠 Build smart automation systems  
+<ul>
+  <li>🚀 Become a Top Full Stack Developer</li>
+  <li>🤖 Build AI-powered SaaS</li>
+  <li>💰 Earn through tech</li>
+  <li>🧠 Build smart automation systems</li>
+</ul>
 
 ---
 
 ## 🔥 Featured Projects
-- 🚀 AI Study Web App  
-- 🤖 Auto Reply AI Agent  
-- 🌐 Full Stack Learning Platform  
-- 🎮 Gaming Tools  
+<ul>
+  <li>🚀 AI Study Web App</li>
+  <li>🤖 Auto Reply AI Agent</li>
+  <li>🌐 Full Stack Learning Platform</li>
+  <li>🎮 Gaming Tools</li>
+</ul>
 
 ---
 
 ## 📊 GitHub Stats
-
-![Harsh's GitHub stats](https://github-readme-stats.vercel.app/api?username=HarshPandey001&show_icons=true&theme=tokyonight)
-
-![Top Langs](https://github-readme-stats.vercel.app/api/top-langs/?username=HarshPandey001&layout=compact&theme=tokyonight)
-
----
-
-## 📫 Contact
-- 📧 Email: hapa1929@gmail.com  
-- 📱 Phone: 6388050042  
+<p align="center">
+  <img src="https://github-readme-stats.vercel.app/api?username=HarshPandey001&show_icons=true&theme=tokyonight"/>
+  <img src="https://github-readme-stats.vercel.app/api/top-langs/?username=HarshPandey001&layout=compact&theme=tokyonight"/>
+</p>
 
 ---
 
-## 💣 Mindset
-> I don’t wait for opportunities — I build them using code.
+## 🔥 Streak Stats
+<p align="center">
+  <img src="https://streak-stats.demolab.com?user=HarshPandey001&theme=tokyonight"/>
+</p>
+
+---
+
+## 👀 Profile Views
+<p align="center">
+  <img src="https://komarev.com/ghpvc/?username=HarshPandey001&label=Profile%20Views&color=blue&style=flat" />
+</p>
+
+---
+
+## 📫 Contact Me
+<p>
+  📧 Email: <b>hapa1929@gmail.com</b><br>
+  📱 Phone: <b>6388050042</b>
+</p>
+
+---
+
+## 💣 Developer Mindset
+<p align="center">
+  <i>“I don’t wait for opportunities — I build systems that create them.”</i>
+</p>
 
 ---
 
 ## 🧠 Fun Fact
-I love building AI systems that can think, remember, and reply like humans  
+<p align="center">
+  ⚡ I love building AI systems that can think, remember, and reply like humans
+</p>
 
 ---
 
-⭐ Follow me for more projects
+<p align="center">
+  ⭐ If you like my work, follow & connect!
+</p>
