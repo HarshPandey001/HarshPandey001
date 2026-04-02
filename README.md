@@ -1,6 +1,6 @@
 # 👋 Hi, I'm Harsh Pandey
 
-### 🚀 Frontend Developer | 🎮 Tech & Gaming Enthusiast | 🤖 AI Lover
+### 🚀 Frontend Developer | 🎮 Tech & Gaming Enthusiast | 🤖 AI User
 
 I'm a BCA student passionate about **web development, coding, esports gaming, and building smart AI tools** that make life easier and faster.  
 I enjoy exploring new technologies, experimenting with projects, and learning by building real things.
